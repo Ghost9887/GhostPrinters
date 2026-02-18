@@ -16,25 +16,44 @@ public class Printer {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "brand")
+    private String brand;
+
+    @Column(name = "model")
+    private String model;
+
+    @Column(name = "type")
+    private String type;
 
     public Printer() {}
 
-    public Printer(String name) {
-        this.name = name;
+    public Printer(String brand, String model, String type) {
+        this.brand = brand;
+        this.model = model;
+        this.type = type;
     }
         
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getType() {
+        return type;
     }
 
     @Override
     public String toString() {
-        return "ID: " + id + " ; Name: " + name;
+        return "ID: " + id
+        + "Brand: " + brand
+        + "Model: " + model
+        + "Type: " + type;
     }
 }

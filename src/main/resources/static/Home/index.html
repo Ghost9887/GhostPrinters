@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <title>Ghost Printers</title>
   </head>
 
@@ -11,23 +15,70 @@
     <h2>Printers</h2>
     <ul id="printers">
     </ul>
+    <table class="table table-bordered" id="printersTable">
+      <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Type</th>
+      </tr>
+    </table>
 
+    <br>
     <form id="addPrinterForm">
-      <input type="text" name="name"/>
+      <label>Brand</label>
+      <select name="brand">
+        <option value="hp">HP</option>
+        <option value="cannon">Cannon</option>
+        <option value="brother">Brother</option>
+        <option value="konica_minolta">Konica Minolta</option>
+        <option value="lexmark">Lexmark</option>
+      </select>
+      <label>Model</label>
+      <input type="text" name="model"/>
+      <label>Type</label>
+      <select name="type">
+        <option value="laser">Laser</option>
+        <option value="ink">Ink</option>
+      </select>
       <button type="submit" value="Submit">Create</button>
     </form>
 
+    <br>
     <h2>Toners</h2>
-    <ul id="toners">
-    </ul>
-
+    
+    <table class="table table-bordered" id="tonersTable">
+      <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Type</th>
+        <th>Size</th>
+      </tr>
+    </table>
+    
     <form id="addTonerForm">
-      <input type="text" name="name"/>
+      <label>Brand</label>
+      <select name="brand">
+        <option value="hp">HP</option>
+        <option value="cannon">Cannon</option>
+        <option value="brother">Brother</option>
+        <option value="konica_minolta">Konica Minolta</option>
+        <option value="lexmark">Lexmark</option>
+      </select>
+      <label>Model</label>
+      <input type="text" name="model"/>
+      <label>Size</label>
       <input type="number" name="size"/>
+      <label>Type</label>
+      <select name="type">
+        <option value="laser">Laser</option>
+        <option value="ink">Ink</option>
+      </select>
       <button type="submit" value="Submit">Create</button>
     </form>
 
-    <script src="Home/index.js"></script>
+    <script type="module" src="Home/index.js"></script>
   </body>
 
   <footer>

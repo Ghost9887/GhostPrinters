@@ -16,32 +16,52 @@ public class Toner {
     @Column(name = "id")   
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "brand")
+    private String brand;
+
+    @Column(name = "model")
+    private String model;
 
     @Column(name = "size")
     private int size;
 
+    @Column(name = "type")
+    private String type;
+
     public Toner() {}
-    public Toner(String name, int size) {
-        this.name = name;
+    public Toner(String brand,  String model, int size, String type) {
+        this.brand = brand;
+        this.model = model;
         this.size = size;
+        this.type = type;
     }
     
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
     }
 
     public int getSize() {
         return size;
     }
 
+    public String getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
-        return "ID: " + id + " ; Name: " + name + " ; Size: " + size;
+        return "ID: " + id
+        + "Brand: " + brand
+        + "Model: " + model
+        + "Size: " + size
+        + "Type: " + type;
     }
 }
