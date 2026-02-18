@@ -1,7 +1,7 @@
 package ghost.printers.app.Controller;
 
 import ghost.printers.app.Entity.Printer; 
-import ghost.printers.app.Repository.PrinterRepository;
+import ghost.printers.app.Services.PrinterService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +13,14 @@ import java.util.List;
 public class ApiController {
 
     @Autowired
-    private final PrinterRepository printerRepo;
+    private final PrinterService printerService;
 
-    public ApiController(PrinterRepository printerRepo) {
-        this.printerRepo = printerRepo;
+    public ApiController(PrinterService printerService) {
+        this.printerService = printerService;
     }
     
     @GetMapping("/printers")
     public List<Printer> getPrinters() {
-        return printerRepo.findAll();
+        return printerService.getAllPrinters();
     }
 }
