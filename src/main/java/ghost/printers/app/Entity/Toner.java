@@ -23,8 +23,7 @@ public class Toner {
     private int size;
 
     public Toner() {}
-    public Toner(int id, String name, int size) {
-        this.id = id;
+    public Toner(String name, int size) {
         this.name = name;
         this.size = size;
     }

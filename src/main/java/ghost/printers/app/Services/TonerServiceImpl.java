@@ -30,4 +30,9 @@ public class TonerServiceImpl implements TonerService {
         }
         return null;
     }
+
+    @Override
+    public void addToner(Toner toner) {
+        tonerRepo.save(toner);
+    }
 }

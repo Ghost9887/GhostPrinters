@@ -53,4 +53,9 @@ public class ApiController {
         return tonerService.getTonerById(id);
     }
 
+    @PostMapping("/toners/add")
+    public void addToners(@RequestBody Toner toner) {
+        tonerService.addToner(toner);
+    }
+
 }

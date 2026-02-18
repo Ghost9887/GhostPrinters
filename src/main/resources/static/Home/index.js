@@ -72,3 +72,25 @@ async function addPrinter() {
     console.error("Error: ", err);
   }
 }
+
+const tonerForm = document.getElementById("addTonerForm");
+
+tonerForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  addToner();
+});
+
+async function addToner() {
+  const formData = new FormData(addTonerForm);
+  const toner = Object.fromEntries(formData.entries());
+  try {
+    const response = await fetch("../api/toners/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(toner)
+    });
+    window.location.reload();
+  } catch (err) {
+    console.error("Error: ", err);
+  }
+}
