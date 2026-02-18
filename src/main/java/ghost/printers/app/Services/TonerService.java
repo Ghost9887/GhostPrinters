@@ -6,4 +6,6 @@ import java.util.List;
 public interface TonerService {
     
     public List<Toner> getAllToners();
+
+    public Toner getTonerById(int id);
 }

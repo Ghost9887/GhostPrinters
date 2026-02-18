@@ -6,20 +6,20 @@ window.addEventListener("DOMContentLoaded", async () => {
 async function getPrinters() {
   try {
     const response = await fetch("../api/printers");
-    if (!response.ok) {
-      console.log("Error loading printers");
-      return;
-    }
     const events = await response.json();
     const printerList = document.getElementById("printers");
     printerList.innerHTML = "";
 
     if (!events || events.length == 0) {
       printerList.innerHTML = "<p>No printers</p>";
+      return;
     }
 
     events.forEach(event => {
-      printerList.innerHTML += `<li>${event.id}<strong>${event.name}</strong></li>`
+      printerList.innerHTML += `
+        <li>${event.id}<strong>${event.name}</strong></li>
+        <button>Delete</button>
+      `
     });
 
   }catch (err) {
@@ -30,23 +30,45 @@ async function getPrinters() {
 async function getToners() {
   try {
     const response = await fetch("../api/toners");
-    if (!response.ok) {
-      console.log("Error loading toners");
-      return;
-    }
     const events = await response.json();
     const printerList = document.getElementById("toners");
     printerList.innerHTML = "";
 
     if (!events || events.length == 0) {
       printerList.innerHTML = "<p>No toners</p>";
+      return;
     }
 
     events.forEach(event => {
-      printerList.innerHTML += `<li>${event.id}<strong>${event.name}</strong>${event.size}</li>`
+      printerList.innerHTML += `
+        <li>${event.id}<strong>${event.name}</strong>${event.size}</li>
+        <button>Delete</button>
+      `
     });
 
   }catch (err) {
     console.error("Error: " , err);
+  }
+}
+
+const printerForm = document.getElementById("addPrinterForm");
+
+printerForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  addPrinter();
+});
+
+async function addPrinter() {
+  const formData = new FormData(addPrinterForm);
+  const printer = Object.fromEntries(formData.entries());
+  try {
+    const response = await fetch("../api/printers/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(printer)
+    });
+    window.location.reload();
+  } catch (err) {
+    console.error("Error: ", err);
   }
 }

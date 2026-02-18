@@ -6,4 +6,8 @@ import java.util.List;
 public interface PrinterService {
     
     public List<Printer> getAllPrinters();
+
+    public Printer getPrinterById(int id);
+
+    public void addPrinter(Printer printer);
 }

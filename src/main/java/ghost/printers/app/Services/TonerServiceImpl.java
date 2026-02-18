@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ghost.printers.app.Entity.Toner;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TonerServiceImpl implements TonerService {
@@ -19,5 +20,14 @@ public class TonerServiceImpl implements TonerService {
     @Override
     public List<Toner> getAllToners() {
         return tonerRepo.findAll();
+    }
+
+    @Override
+    public Toner getTonerById(int id) {
+        Optional<Toner> toner = tonerRepo.findById(id);
+        if (toner.isPresent()) {
+            return toner.get();
+        }
+        return null;
     }
 }

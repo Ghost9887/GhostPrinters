@@ -21,8 +21,7 @@ public class Printer {
 
     public Printer() {}
 
-    public Printer(int id, String name) {
-        this.id = id;
+    public Printer(String name) {
         this.name = name;
     }
         
