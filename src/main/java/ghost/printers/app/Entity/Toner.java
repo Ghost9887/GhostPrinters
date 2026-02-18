@@ -8,24 +8,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "printers")
-public class Printer {
+@Table(name = "toners")
+public class Toner {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id")   
     private int id;
 
     @Column(name = "name")
     private String name;
 
-    public Printer() {}
+    @Column(name = "size")
+    private int size;
 
-    public Printer(int id, String name) {
+    public Toner() {}
+    public Toner(int id, String name, int size) {
         this.id = id;
         this.name = name;
+        this.size = size;
     }
-        
+    
     public int getId() {
         return id;
     }
@@ -34,8 +37,12 @@ public class Printer {
         return name;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     @Override
     public String toString() {
-        return "ID: " + id + " ; Name: " + name;
+        return "ID: " + id + " ; Name: " + name + " ; Size: " + size;
     }
 }
