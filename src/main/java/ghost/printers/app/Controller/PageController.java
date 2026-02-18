@@ -9,7 +9,7 @@ public class PageController {
     
     @GetMapping("/")
     public String homePage() {
-        return "index.html";
+        return "Home/index.html";
     }
 
 }
