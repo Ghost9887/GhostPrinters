@@ -35,4 +35,12 @@ public class TonerServiceImpl implements TonerService {
     public void addToner(Toner toner) {
         tonerRepo.save(toner);
     }
+
+    @Override
+    public void deleteTonerById(int id) {
+        Optional<Toner> toner = tonerRepo.findById(id);
+        if(toner.isPresent()) {
+            tonerRepo.deleteById(id);
+        }
+    }
 }

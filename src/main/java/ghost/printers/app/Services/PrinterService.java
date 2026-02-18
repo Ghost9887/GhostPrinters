@@ -10,4 +10,6 @@ public interface PrinterService {
     public Printer getPrinterById(int id);
 
     public void addPrinter(Printer printer);
+
+    public void deletePrinterById(int id);
 }

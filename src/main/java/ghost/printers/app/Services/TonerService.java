@@ -10,4 +10,6 @@ public interface TonerService {
     public Toner getTonerById(int id);
 
     public void addToner(Toner toner);
+
+    public void deleteTonerById(int id);
 }

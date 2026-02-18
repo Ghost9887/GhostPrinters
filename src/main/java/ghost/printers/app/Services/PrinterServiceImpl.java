@@ -35,4 +35,12 @@ public class PrinterServiceImpl implements PrinterService {
     public void addPrinter(Printer printer) {
         printerRepo.save(printer);
     }
+
+    @Override
+    public void deletePrinterById(int id) {
+        Optional<Printer> printer = printerRepo.findById(id);
+        if (printer.isPresent()) {
+            printerRepo.deleteById(id);
+        }
+    }
 }

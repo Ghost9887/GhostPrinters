@@ -16,9 +16,11 @@ async function getPrinters() {
     }
 
     events.forEach(event => {
-      printerList.innerHTML += `
-        <li>${event.id}<strong>${event.name}</strong></li>
-        <button>Delete</button>
+      printerList.innerHTML += ` 
+        <span>
+          <li>${event.id}<strong>${event.name}</strong></li>
+          <button>Delete</button> 
+        </span>
       `
     });
 
@@ -41,8 +43,10 @@ async function getToners() {
 
     events.forEach(event => {
       printerList.innerHTML += `
-        <li>${event.id}<strong>${event.name}</strong>${event.size}</li>
-        <button>Delete</button>
+        <span>
+          <li>${event.id}<strong>${event.name}</strong>${event.size}</li>
+          <button>Delete</button>
+        </span>
       `
     });
 

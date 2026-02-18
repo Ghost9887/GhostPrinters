@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
@@ -43,6 +44,11 @@ public class ApiController {
         printerService.addPrinter(printer);
     }
 
+    @DeleteMapping("/printers/delete/{id}")
+    public void deletePrinterById(@PathVariable int id) {
+        printerService.deletePrinterById(id);
+    }
+
     @GetMapping("/toners")
     public List<Toner> getToners() {
         return tonerService.getAllToners();
@@ -56,6 +62,11 @@ public class ApiController {
     @PostMapping("/toners/add")
     public void addToners(@RequestBody Toner toner) {
         tonerService.addToner(toner);
+    }
+
+    @DeleteMapping("/toners/delete/{id}")
+    public void deleteTonerById(@PathVariable int id) {
+        tonerService.deleteTonerById(id);
     }
 
 }
