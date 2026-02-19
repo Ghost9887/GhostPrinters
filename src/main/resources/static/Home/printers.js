@@ -3,10 +3,23 @@ export async function getPrinters() {
     const response = await fetch("../api/printers");
     const events = await response.json();
     const printerTable = document.getElementById("printersTable");
+    
+    printerTable.innerHTML = `
+      <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Type</th>
+        <th>In Stock</th>
+        <th>Actions</th>
+      </tr>
+    `
+
     if (!events || events.length == 0) {
       return;
     }
-   
+    events.sort((a, b) => a.id - b.id);
+    
     events.forEach(event => {
       printerTable.innerHTML += `
         <tr>
@@ -16,6 +29,12 @@ export async function getPrinters() {
           <td>${event.type}</td>
           <td>${event.stock}</td>
           <td>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="editPrinter("${event.id})">
+              Edit
+            </button>
             <button 
               type="button" 
               class="btn btn-danger" 
@@ -42,13 +61,20 @@ printerForm.addEventListener("submit", (event) => {
 async function addPrinter() {
   const formData = new FormData(addPrinterForm);
   const printer = Object.fromEntries(formData.entries());
+
   try {
     const response = await fetch("../api/printers/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(printer)
     });
-    window.location.reload();
+
+    const modalEl = document.getElementById("addPrinterModal");
+    const modal = bootstrap.Modal.getInstance(modalEl) 
+                 || new bootstrap.Modal(modalEl);
+
+    modal.hide();
+    await getPrinters();
   } catch (err) {
     console.error("Error: ", err);
   }
@@ -60,9 +86,12 @@ async function deletePrinter(id) {
     const response = await fetch(`../api/printers/delete/${id}`, {
       method: "DELETE",
     });
-    window.location.reload();
+    await getPrinters();
   } catch (err) {
     console.error("Error: ", err);
   }
 }
 window.deletePrinter = deletePrinter;
+
+async function editPrinter(id) {}
+window.editPrinter = editPrinter;

@@ -12,4 +12,9 @@ public interface TonerService {
     public void addToner(Toner toner);
 
     public void deleteTonerById(int id);
+
+    public void increaseTonerCount(int id);
+    
+    public void decreaseTonerCount(int id);
+
 }

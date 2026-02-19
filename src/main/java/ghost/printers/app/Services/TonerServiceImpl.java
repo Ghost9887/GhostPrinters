@@ -43,4 +43,32 @@ public class TonerServiceImpl implements TonerService {
             tonerRepo.deleteById(id);
         }
     }
+
+    @Override
+    public void increaseTonerCount(int id) {
+        Optional<Toner> toner = tonerRepo.findById(id);
+        if (toner.isPresent()) {
+            Toner originalToner = toner.get();
+            int stock = originalToner.getStock();
+            stock++;
+            if (stock >= 0) { 
+                originalToner.setStock(stock--);
+                tonerRepo.save(originalToner);
+            }
+        }
+    }
+
+    @Override
+    public void decreaseTonerCount(int id) {
+        Optional<Toner> toner = tonerRepo.findById(id);
+        if (toner.isPresent()) {
+            Toner originalToner = toner.get();
+            int stock = originalToner.getStock();
+            stock--;
+            if (stock >= 0) {
+                originalToner.setStock(stock);
+                tonerRepo.save(originalToner);
+            }
+        }
+    }
 }

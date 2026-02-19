@@ -39,12 +39,10 @@
       <div class="container mt-4">
         <h2>Printers</h2>
         <ul id="printers"></ul>
-
-        <br>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPrinterModal">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addPrinterModal">
           Add Printer
         </button>
-
+        <br>
         <div class="modal fade" id="addPrinterModal" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -53,99 +51,96 @@
                 <h5 class="modal-title">Add Printer</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
               </div>
+              <div class="modal-body">
+                <form id="addPrinterForm">
+                    <label class="form-label">Brand</label>
+                    <select name="brand" class="form-select">
+                      <option value="hp">HP</option>
+                      <option value="cannon">Cannon</option>
+                      <option value="brother">Brother</option>
+                      <option value="konica_minolta">Konica Minolta</option>
+                      <option value="lexmark">Lexmark</option>
+                    </select>
 
-              <form id="addPrinterForm">
-                <div class="modal-body">
+                    <label class="form-label mt-2">Model</label>
+                    <input type="text" name="model" class="form-control"/>
 
-                  <label class="form-label">Brand</label>
-                  <select name="brand" class="form-select">
-                    <option value="hp">HP</option>
-                    <option value="cannon">Cannon</option>
-                    <option value="brother">Brother</option>
-                    <option value="konica_minolta">Konica Minolta</option>
-                    <option value="lexmark">Lexmark</option>
-                  </select>
+                    <label class="form-label mt-2">Type</label>
+                    <select name="type" class="form-select">
+                      <option value="laser">Laser</option>
+                      <option value="ink">Ink</option>
+                    </select>
 
-                  <label class="form-label mt-2">Model</label>
-                  <input type="text" name="model" class="form-control"/>
+                    <label class="form-label mt-2">In stock</label>
+                    <input type="number" name="stock" class="form-control"/>
 
-                  <label class="form-label mt-2">Type</label>
-                  <select name="type" class="form-select">
-                    <option value="laser">Laser</option>
-                    <option value="ink">Ink</option>
-                  </select>
-
-                  <label class="form-label mt-2">In stock</label>
-                  <input type="number" name="stock" class="form-control"/>
-
-                </div>
-
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button class="btn btn-primary" type="submit">Create</button>
-                </div>
-              </form>
-
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Create</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
         
         <br>       
         <table class="table table-bordered" id="printersTable">
-          <tr>
-            <th>Id</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Type</th>
-            <th>In Stock</th>
-            <th>Actions</th>
-          </tr>
+          
         </table>
 
         <br>
         <br>
 
         <h2>Toners</h2>
-
-        <form id="addTonerForm">
-          <label>Brand</label>
-          <select name="brand">
-            <option value="hp">HP</option>
-            <option value="cannon">Cannon</option>
-            <option value="brother">Brother</option>
-            <option value="konica_minolta">Konica Minolta</option>
-            <option value="lexmark">Lexmark</option>
-          </select>
-
-          <label>Model</label>
-          <input type="text" name="model"/>
-
-          <label>Size</label>
-          <input type="number" name="size"/>
-
-          <label>Type</label>
-          <select name="type">
-            <option value="laser">Laser</option>
-            <option value="ink">Ink</option>
-          </select>
-
-          <label>In Stock</label>
-          <input type="number" name="stock"/>
-          <button type="submit" value="Submit">Create</button>
-        </form>
-
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addTonerModal">
+          Add Toner 
+        </button>
         <br>
+        <div class="modal fade" id="addTonerModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
 
+              <div class="modal-header">
+                <h5 class="modal-title">Add Toner</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form id="addTonerForm">
+                  <label class="form-label">Brand</label>
+                    <select name="brand" class="form-select">
+                      <option value="hp">HP</option>
+                      <option value="cannon">Cannon</option>
+                      <option value="brother">Brother</option>
+                      <option value="konica_minolta">Konica Minolta</option>
+                      <option value="lexmark">Lexmark</option>
+                    </select>
+
+                    <label class="form-label mt-2">Model</label>
+                    <input type="text" name="model" class="form-control"/>
+
+                    <label class="form-label mt-2">Type</label>
+                    <select name="type" class="form-select">
+                      <option value="laser">Laser</option>
+                      <option value="ink">Ink</option>
+                    </select>
+
+                    <label class="form-label mt-2">Size</label>
+                    <input type="number" name="size" class="form-control"/>
+
+                    <label class="form-label mt-2">In stock</label>
+                    <input type="number" name="stock" class="form-control"/>
+
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Create</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
         <table class="table table-bordered" id="tonersTable">
-          <tr>
-            <th>Id</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Type</th>
-            <th>Size</th>
-            <th>In Stock</th>
-            <th>Actions</th>
-          </tr>
+          
         </table>
 
       </div>
