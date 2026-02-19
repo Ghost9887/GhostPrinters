@@ -28,12 +28,16 @@ public class Toner {
     @Column(name = "type")
     private String type;
 
+    @Column(name = "stock")
+    private int stock;
+
     public Toner() {}
-    public Toner(String brand,  String model, int size, String type) {
+    public Toner(String brand,  String model, int size, String type, int stock) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.type = type;
+        this.stock = stock;
     }
     
     public int getId() {
@@ -56,12 +60,17 @@ public class Toner {
         return type;
     }
 
+    public int getStock() {
+        return stock;
+    }
+
     @Override
     public String toString() {
         return "ID: " + id
         + "Brand: " + brand
         + "Model: " + model
         + "Size: " + size
-        + "Type: " + type;
+        + "Type: " + type
+        + "Stock: " + stock;
     }
 }

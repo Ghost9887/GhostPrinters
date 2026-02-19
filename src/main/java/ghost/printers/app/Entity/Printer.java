@@ -25,12 +25,16 @@ public class Printer {
     @Column(name = "type")
     private String type;
 
+    @Column(name = "stock")
+    private int stock;
+
     public Printer() {}
 
-    public Printer(String brand, String model, String type) {
+    public Printer(String brand, String model, String type, int stock) {
         this.brand = brand;
         this.model = model;
         this.type = type;
+        this.stock = stock;
     }
         
     public int getId() {
@@ -49,11 +53,16 @@ public class Printer {
         return type;
     }
 
+    public int getStock() {
+        return stock;
+    }
+
     @Override
     public String toString() {
         return "ID: " + id
         + "Brand: " + brand
         + "Model: " + model
-        + "Type: " + type;
+        + "Type: " + type
+        + "Stock: " + stock;
     }
 }

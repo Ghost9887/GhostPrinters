@@ -8,12 +8,13 @@ export async function getPrinters() {
     }
    
     events.forEach(event => {
-      printerTable.innerHTML += ` 
+      printerTable.innerHTML += `
         <tr>
           <td>${event.id}</td>
           <td>${event.brand}</td>
           <td>${event.model}</td>
           <td>${event.type}</td>
+          <td>${event.stock}</td>
           <td>
             <button 
               type="button" 

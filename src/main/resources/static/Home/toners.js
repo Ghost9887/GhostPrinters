@@ -10,21 +10,23 @@ export async function getToners() {
 
     events.forEach(event => {
       tonersTable.innerHTML += `
-        <tr>
-          <td>${event.id}</td>
-          <td>${event.brand}</td>
-          <td>${event.model}</td>
-          <td>${event.type}</td>
-          <td>${event.size}</td>
-          <td>
-            <button 
-              type="button" 
-              class="btn btn-danger" 
-              onclick="deleteToner(${event.id})">
-              Delete
-            </button>
-          </td>
-        </tr>
+          <tr>
+            <td>${event.id}</td>
+            <td>${event.brand}</td>
+            <td>${event.model}</td>
+            <td>${event.type}</td>
+            <td>${event.size}</td>
+            <td>${event.stock}</td>
+            <td>
+              <button 
+                type="button" 
+                class="btn btn-danger" 
+                onclick="deleteToner(${event.id})">
+                Delete
+              </button>
+            </td>
+          </tr>
+          
       `
     });
 
