@@ -6,11 +6,12 @@ export async function getPrinters() {
     
     printerTable.innerHTML = `
       <tr>
+        <th></th>
         <th>Id</th>
         <th>Brand</th>
         <th>Model</th>
         <th>Type</th>
-        <th>In Stock</th>
+        <th>Amount</th>
         <th>Actions</th>
       </tr>
     `
@@ -21,13 +22,23 @@ export async function getPrinters() {
     events.sort((a, b) => a.id - b.id);
     
     events.forEach(event => {
+      let imageUrl = "";
+      if (event.type === "ink") {
+        imageUrl = "../icons/Ink_Printer.svg";
+      }else if(event.type === "laser") {
+        imageUrl = "../icons/Laser_Printer.svg";
+      }else {
+        imageUrl = "../icons/Multi_Printer.svg";
+      }
+
       printerTable.innerHTML += `
         <tr>
+          <td><img src="${imageUrl}" width="50" height="50" /></td>
           <td>${event.id}</td>
           <td>${event.brand}</td>
           <td>${event.model}</td>
           <td>${event.type}</td>
-          <td>${event.stock}</td>
+          <td>${event.amount}</td>
           <td>
             <button
               type="button"
